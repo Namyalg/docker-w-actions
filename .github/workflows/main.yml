@@ -9,17 +9,24 @@ jobs:
     name: Pytest with Github Actions
     # runs on the latest Ubuntu
     runs-on: ubuntu-latest 
-    # runs within your Docker container
-    services:
-      myport:
-        image: nam2312/myimage:1
-        # Map port 8080 on the Docker host to port 80 on the nginx container
-        ports:
-          - 5000:5000
-    
     steps:
     - uses: actions/checkout@v2
-    - name: Test with pytest
+    - name: docker build
       run: |
-          pip install -U pytest
-          pytest tests
+        cd app
+        docker build -t sampleflask
+    
+#     # runs within your Docker container
+#     services:
+#       myport:
+#         image: nam2312/myimage:1
+#         # Map port 8080 on the Docker host to port 80 on the nginx container
+#         ports:
+#           - 5000:5000
+    
+#     steps:
+#     - uses: actions/checkout@v2
+#     - name: Test with pytest
+#       run: |
+#           pip install -U pytest
+#           pytest tests
