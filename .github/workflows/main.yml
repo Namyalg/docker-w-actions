@@ -1,7 +1,6 @@
 name : Test Pytest
 
 on:
-  push:
   workflow_dispatch:
   
 jobs:
@@ -14,7 +13,7 @@ jobs:
     - name: docker build
       run: |
         cd app
-        docker build -t sampleflask
+        docker build -t flask-api .
     
 #     # runs within your Docker container
 #     services:
