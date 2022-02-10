@@ -14,7 +14,11 @@ jobs:
       run: |
         cd app
         docker build -t flask-api .
-    
+        docker run --rm -d -p 5000:5000 flask-api
+    - name: test endpoint
+      run : |
+        pip install -U pytest
+        pytest tests
 #     # runs within your Docker container
 #     services:
 #       myport:
