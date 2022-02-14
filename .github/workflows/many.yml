@@ -12,4 +12,4 @@ jobs:
       # Configures the node version used on GitHub-hosted runners
       - uses: actions/checkout@v2
       - run: |
-          echo ${{ matrix.node }}
+          echo "hello"
