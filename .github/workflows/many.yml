@@ -1,0 +1,15 @@
+name : Test strategy matrix
+on: 
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu
+    strategy:
+    matrix:
+      node: [10, 12, 14]
+  steps:
+    # Configures the node version used on GitHub-hosted runners
+    - uses: actions/checkout@v2
+      run: |
+        echo ${{ matrix.node }}
